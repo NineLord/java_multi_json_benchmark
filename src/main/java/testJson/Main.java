@@ -37,12 +37,20 @@ public class Main {
         return configs;
     }
 
+    /*
+     * Example for running this project:
+     * rm -rf ~/.m2
+     * mvn clean compile
+     * mvn exec:java -Dexec.args="-s /PATH/TO/json_benchmark/benchmarks/output/report_Java_config_2s.xlsx /PATH/TO/json_benchmark/benchmarks/input/config_2.json 2"
+     */
+
     public static void main(String[] args) throws IOException {
         //#region Test input
-        final int testCounter = Math.max(Integer.parseInt(args[0]), 1);
-        @NotNull final String configPath = args[1];
+        // First argument "-s"
+        final int testCounter = Math.max(Integer.parseInt(args[3]), 1);
+        @NotNull final String configPath = args[2];
         @NotNull final List<Config> configs = parseAndValidateConfigFile(configPath);
-        @NotNull final String saveFilePath = args[2];
+        @NotNull final String saveFilePath = args[1];
         final int threadCount = 3;
         final boolean isDebug = false;
         //#endregion
