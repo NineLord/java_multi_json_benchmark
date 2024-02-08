@@ -41,7 +41,7 @@ public class Main {
      * Example for running this project:
      * rm -rf ~/.m2
      * mvn clean compile
-     * mvn exec:java -Dexec.args="-s /PATH/TO/json_benchmark/benchmarks/output/report_Java_config_2s.xlsx /PATH/TO/json_benchmark/benchmarks/input/config_2.json 2"
+     * mvn exec:java -Dexec.args="-s /PATH/TO/json_benchmark/benchmarks/output/report_Java_config_2s.xlsx /PATH/TO/json_benchmark/benchmarks/input/config_2.json 2 16"
      */
 
     public static void main(String[] args) throws IOException {
@@ -51,7 +51,7 @@ public class Main {
         @NotNull final String configPath = args[2];
         @NotNull final List<Config> configs = parseAndValidateConfigFile(configPath);
         @NotNull final String saveFilePath = args[1];
-        final int threadCount = 3;
+        final int threadCount = Integer.parseInt(args[4]);
         final boolean isDebug = false;
         //#endregion
 
